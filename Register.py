@@ -1,14 +1,5 @@
 import Data, FungsiBuatan, Cipher
 
-"""
-def register(a): # kalau menggunakan perintah save
-    # Input data user ke file user.csv
-    registrasi= open("FileEksternal/user.csv","a")
-
-    inputUserData = (str(a+1)+";"+username+";"+nama+";"+password+";"+"user"+";"+str(saldoAwal)+"\n")
-    registrasi.writelines(inputUserData)
-"""
-
 def validasiUsername(username): # Mengecek apakah username sudah terpakai atau belum
     for i in range (FungsiBuatan.lenght(Data.users)):
         if(Data.users[i][1] == username):
