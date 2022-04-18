@@ -1,16 +1,4 @@
 import Data, FungsiBuatan
-"""
-def stokBerkurang():
-    game = open('game.csv', 'w')
-    for i in range(FungsiBuatan.lenght(Data.games)):
-        game.writelines(Data.games[i][0]+';'+Data.games[i][1]+';'+Data.games[i][2]+';'+Data.games[i][3]+';'+Data.games[i][4]+";"+str(Data.games[i][5])+'\n')
-    
-
-def stokBertambah():
-    game = open('game.csv', 'w')
-    for i in range(FungsiBuatan.lenght(Data.games)):
-        game.writelines(Data.games[i][0]+';'+Data.games[i][1]+';'+Data.games[i][2]+';'+Data.games[i][3]+';'+Data.games[i][4]+";"+str(Data.games[i][5])+'\n')
-""" # Di Fungsi Save
 
 def ubahStok():
     id = input("Masukkan ID game: ")
