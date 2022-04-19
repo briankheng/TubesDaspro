@@ -12,7 +12,6 @@ def login(): # Melakukan login, jika login tervalidasi maka mengembalikan idxUse
     idxUser = validasi(username, password)
     if(idxUser != -1):
         print("Halo " + Data.users[idxUser][2] + '! Selamat datang di "Binomo".')
-        return idxUser
     else:
         print("Password atau username salah atau tidak ditemukan.")
-        return -1
+    return idxUser
