@@ -9,7 +9,7 @@ def topUpSaldo():
 
     # mencari username
     for i in range(FungsiBuatan.lenght(Data.user)):
-        if(Data.user[i][1] == id):
+        if(Data.user[i][1] == username):
             if (Data.user[i][5] + int(saldo) < 0): # validasi nilai saldo
                 print("Masukan tidak valid.")
             else:
