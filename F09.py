@@ -1,5 +1,7 @@
-raw = open('riwayat.csv', 'r').readlines()
-raw2 = open('game.csv', 'r').readlines()
+import Data, FungsiBuatan
+
+raw = open('FileEksternal/riwayat.csv', 'r').readlines()
+raw2 = open('FileEksternal/game.csv', 'r').readlines()
 def CSVParser (raw):
     M = [["" for col in range(6)] for row in range(100)]
     for i in range(len(raw)): # Fungsi len buat sendiri
