@@ -1,25 +1,30 @@
 import FungsiBuatan, Data
 
 def membeliGame(idxUser):
-    # input user
+    # input id Game yang ingin dibeli
     idGame = input("Masukkan ID Game: ")
 
     # mencari game
+    punya = False
     for i in range(FungsiBuatan.lenght(Data.kepemilikan)):
-        if((Data.kepemilikan[i][0] == idGame) and (Data.kepemilikan[i][1] == idxUser)): # cek apakah user sudah memiliki game
+        if((Data.kepemilikan[i][0] == idGame) and (Data.kepemilikan[i][1] == Data.users[idxUser][0])): # cek apakah user sudah memiliki game
+            punya = True
             print("Anda sudah memiliki game tersebut.")
-        else:
-            for j in range (FungsiBuatan.lenght(Data.user)):
-                if (Data.user[j][0] == idxUser):
-                    for k in range (FungsiBuatan.lenght(Data.games)): # buka game
-                        if (Data.games[k][0] == idGame):
-                            if (Data.user[j][5] < Data.games[k][4]): # cek saldo
-                                print("Saldo anda tidak cukup untuk membeli game tersebut.")
-                            else: # cek stok
-                                if (Data.game[k][5] == 0):
-                                    print("Game tersebut sedang habis.")
-                                else:
-                                    print("Game" + str(Data.game[k][1]) + " berhasil dibeli.")
-                                    Data.game[k][5] -= 1 # mengurangi stok
-                                    Data.user[j][5] -= Data.games[k][4] # mengurangi saldo
-                                    Data.kepemilikan += [[Data.games[k][0], Data.user[j][0]]] # menambahkan kepemilikan
+
+    if(not punya):
+        adaGame = False
+        for i in range(FungsiBuatan.lenght(Data.games)):
+            if(Data.games[i][0] == idGame):
+                adaGame = True
+                if(int(Data.games[i][5]) == 0):
+                    print("Stok Game tersebut sedang habis!")
+                elif(int(Data.games[i][4]) > int(Data.users[idxUser][5])):
+                    print("Saldo anda tidak cukup untuk membeli Game tersebut!")
+                else:
+                    print('Game "' + Data.games[i][1] + '" berhasil dibeli!')
+                    Data.games[i][5] = int(Data.games[i][5]) - 1
+                    Data.users[idxUser][5] = int(Data.users[idxUser][5]) - int(Data.games[i][4])
+                    Data.kepemilikan += [[Data.games[i][0], Data.users[idxUser][0]]]
+        
+        if(not adaGame):
+            print("Game [id = " + idGame + "] tidak ditemukan pada toko!")
