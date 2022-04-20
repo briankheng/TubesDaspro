@@ -1,3 +1,5 @@
+import Data, FungsiBuatan
+
 def riwayat():
     arr = []
     for i in range(6):
