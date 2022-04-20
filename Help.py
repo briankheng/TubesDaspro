@@ -32,3 +32,9 @@ def help(pilihan):
         helpUser()
     else:
         helpBelumLogin()
+        
+print("Login sebagai:")
+print("1. Admin")
+print("2. User")
+pilihan = int(input(""))
+help(pilihan)
