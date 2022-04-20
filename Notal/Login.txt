@@ -1,0 +1,44 @@
+Module Login
+{ Menerima username dan password kemudian divalidasi, sehingga
+  dapat menjalankan fungsi-fungsi lain sesuai dengan rolenya }
+
+KAMUS
+    Data, FungsiBuatan, Cipher : module
+
+    { Fungsi/Prosedur }
+    function validasi(username : string, password : string) -> integer
+    { Mengembalikan indeks username dan password pada variabel global jika ada,
+      jika tidak ada maka mengembalikan -1 }
+    function login() -> integer
+    { Mengembalikan indeks user dan pesan pembuka jika validasi benar,
+      jika salah akan mengembalikan -1 dan pesan kesalahan }
+
+ALGORITMA
+    import Data, FungsiBuatan, Cipher
+
+{ REALISASI FUNGSI/PROSEDUR }
+function validasi(username : string, password : string) -> integer
+{ Mengembalikan indeks username dan password pada variabel global jika ada,
+  jika tidak ada maka mengembalikan -1 }
+KAMUS LOKAL
+    i : integer
+ALGORITMA
+    i traversal [0..FungsiBuatan.lenght(Data.users)]
+        if(Data.users[i][1] == username and Cipher.decrypt(Data.users[i][3], 4) == password) then
+            -> i
+    -> -1
+
+function login() -> integer
+{ Mengembalikan indeks user dan pesan pembuka jika validasi benar,
+  jika salah akan mengembalikan -1 dan pesan kesalahan }
+KAMUS LOKAL
+    username, password : string
+    idxUser : integer
+ALGORITMA
+    input(username, password)
+    idxUser <- validasi(username, password)
+    if(idxUser ≠ -1) then
+        output("Halo ", Data.users[idxUser][2], "! Selamat datang di "Binomo".")
+    else
+        output("Password atau username salah atau tidak ditemukan.")
+    -> idxUser
