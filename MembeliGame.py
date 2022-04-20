@@ -1,4 +1,5 @@
 import FungsiBuatan, Data
+from time import gmtime
 
 def membeliGame(idxUser):
     # input id Game yang ingin dibeli
@@ -25,6 +26,7 @@ def membeliGame(idxUser):
                     Data.games[i][5] = int(Data.games[i][5]) - 1
                     Data.users[idxUser][5] = int(Data.users[idxUser][5]) - int(Data.games[i][4])
                     Data.kepemilikan += [[Data.games[i][0], Data.users[idxUser][0]]]
+                    Data.riwayat += [[Data.games[i][0], Data.games[i][1], Data.games[i][4], Data.users[idxUser][0], gmtime().tm_year]]
         
         if(not adaGame):
             print("Game [id = " + idGame + "] tidak ditemukan pada toko!")
