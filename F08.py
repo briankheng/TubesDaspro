@@ -9,7 +9,7 @@ def membeliGame(idxUser):
         if((Data.kepemilikan[i][0] == idGame) and (Data.kepemilikan[i][1] == idxUser)): # cek apakah user sudah memiliki game
             print("Anda sudah memiliki game tersebut.")
         else:
-            for j in range (fungsiBuatan.lenght(Data.user)):
+            for j in range (FungsiBuatan.lenght(Data.user)):
                 if (Data.user[j][0] == idxUser):
                     for k in range (FungsiBuatan.lenght(Data.games)): # buka game
                         if (Data.games[k][0] == idGame):
