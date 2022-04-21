@@ -14,9 +14,9 @@ def writeToCSV(dirPath, file, memori):
         temp = ""
         for j in range(FungsiBuatan.lenght(memori[i])):
             if(j == FungsiBuatan.lenght(memori[i]) - 1):
-                temp += (memori[i][j] + '\n')
+                temp += (str(memori[i][j]) + '\n')
             else:
-                temp += (memori[i][j] + ';')
+                temp += (str(memori[i][j]) + ';')
         arsipFile.writelines(temp)
     arsipFile.close()
 
