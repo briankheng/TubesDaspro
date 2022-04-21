@@ -16,7 +16,7 @@ while True:
     if(perintah == "register"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
-                Register.register()
+                Register.register(args.namaFolder)
             else:
                 print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
         else:
