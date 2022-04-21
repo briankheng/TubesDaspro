@@ -14,5 +14,5 @@ def listGame(idxUser):
         print("Daftar game:")
         nomor = 1
         for i in arr:
-            print(str(nomor) + ". " + i[0] + " | " + i[1] + " | " + i[2] + " | " + i[3] + " | " + i[4] + " |")
+            print(str(nomor)+". "+str(i[0])+" | "+str(i[1])+" | "+str(i[2])+" | "+str(i[3])+" | "+str(i[4])+" |")
             nomor += 1
