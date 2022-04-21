@@ -13,7 +13,7 @@ idxUser = -1
 
 while True:
     perintah = input(">>> ")
-    if(perintah == "register"):
+    if(perintah.lower() == "register"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
                 Register.register(args.namaFolder)
@@ -21,14 +21,14 @@ while True:
                 print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "login"):
+    elif(perintah.lower() == "login"):
         if(not sudahLogin):
             idxUser = Login.login()
             if(idxUser != -1):
                 sudahLogin = True
         else:
             print("Maaf, anda telah melakukan login sebelumnya, exit terlebih dahulu sebelum menjalankan perintah login!")
-    elif(perintah == "tambah_game"):
+    elif(perintah.lower() == "tambah_game"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
                 TambahGame.tambahGame()
@@ -36,7 +36,7 @@ while True:
                 print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "ubah_game"):
+    elif(perintah.lower() == "ubah_game"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
                 UbahGame.ubahGame()
@@ -44,7 +44,7 @@ while True:
                 print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "ubah_stok"):
+    elif(perintah.lower() == "ubah_stok"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
                 UbahStok.ubahStok()
@@ -52,12 +52,12 @@ while True:
                 print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "list_game_toko"):
+    elif(perintah.lower() == "list_game_toko"):
         if(sudahLogin):
             ListGameToko.listGame()
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "buy_game"):
+    elif(perintah.lower() == "buy_game"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "User"):
                 MembeliGame.membeliGame(idxUser)
@@ -65,7 +65,7 @@ while True:
                 print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "list_game"):
+    elif(perintah.lower() == "list_game"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "User"):
                 ListGameInventory.listGame(idxUser)
@@ -73,7 +73,7 @@ while True:
                 print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "search_my_game"):
+    elif(perintah.lower() == "search_my_game"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "User"):
                 CariGameInventory.cariGameInventory(idxUser)
@@ -81,12 +81,12 @@ while True:
                 print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "search_game_at_store"):
+    elif(perintah.lower() == "search_game_at_store"):
         if(sudahLogin):
             CariGameToko.cariGameToko()
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "topup"):
+    elif(perintah.lower() == "topup"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
                 TopUp.topUpSaldo()
@@ -94,7 +94,7 @@ while True:
                 print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "riwayat"):
+    elif(perintah.lower() == "riwayat"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "User"):
                 MelihatRiwayat.riwayat(idxUser)
@@ -102,7 +102,7 @@ while True:
                 print("Maaf, anda harus menjadi user untuk melakukan hal tersebut.")
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "help"):
+    elif(perintah.lower() == "help"):
         if(sudahLogin):
             if(Data.users[idxUser][4] == "Admin"):
                 Help.help(1)
@@ -110,22 +110,22 @@ while True:
                 Help.help(2)
         else:
             Help.help(3)
-    elif(perintah == "save"):
+    elif(perintah.lower() == "save"):
         if(sudahLogin):
             Save.save()
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "exit"):
+    elif(perintah.lower() == "exit"):
         if(sudahLogin):
             Exit.exit()
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "kerangajaib"):
+    elif(perintah.lower() == "kerangajaib"):
         if(sudahLogin):
             MagicConchShell.LCG()
         else:
             print('Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain "login"')
-    elif(perintah == "tictactoe"):
+    elif(perintah.lower() == "tictactoe"):
         if(sudahLogin):
             TicTacToe.tictactoe()
         else:
