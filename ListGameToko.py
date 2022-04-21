@@ -20,13 +20,13 @@ def sortingGame(idx, c):
     sortedGames = sortingArr(Data.games, idx)
     if(c == '+'):
         for i in range(1, FungsiBuatan.lenght(Data.games)):
-            print(str(i)+'. '+sortedGames[i][0]+' | '+sortedGames[i][1]+' | '+sortedGames[i][2]
-                +' | '+sortedGames[i][3]+' | '+sortedGames[i][4]+' | '+sortedGames[i][5])
+            print(str(i)+'. '+str(sortedGames[i][0])+' | '+str(sortedGames[i][1])+' | '+str(sortedGames[i][2])
+                +' | '+str(sortedGames[i][3])+' | '+str(sortedGames[i][4])+' | '+str(sortedGames[i][5]))
     else:
         nomor = 0
         for i in range(FungsiBuatan.lenght(Data.games)-1, 0, -1):
-            print(str(nomor+1)+'. '+sortedGames[i][0]+' | '+sortedGames[i][1]+' | '+sortedGames[i][2]
-                +' | '+sortedGames[i][3]+' | '+sortedGames[i][4]+' | '+sortedGames[i][5])
+            print(str(nomor+1)+'. '+str(sortedGames[i][0])+' | '+str(sortedGames[i][1])+' | '+str(sortedGames[i][2])
+                +' | '+str(sortedGames[i][3])+' | '+str(sortedGames[i][4])+' | '+str(sortedGames[i][5]))
             nomor += 1
 
 def listGame():
