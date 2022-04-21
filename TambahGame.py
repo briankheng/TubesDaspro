@@ -22,12 +22,17 @@ def tambahGame():
     # generate game id
     banyakGame = FungsiBuatan.lenght(Data.games) + 1
 
-    if banyakGame <= 9:
-        gameIdNew = "GAME00" + str(banyakGame)
-    elif banyakGame <= 99:
-        gameIdNew = "GAME0" + str(banyakGame)
-    elif banyakGame <= 999:
-        gameIdNew = "GAME" + str(banyakGame) # pesan error stlh 999
-    
-    # Add data to Global Variable
-    Data.games += [[gameIdNew, newGame[0], newGame[1], newGame[2], newGame[3], newGame[4]]]
+    if(banyakGame > 999):
+        print("Error! Tidak ada slot untuk game baru!")
+    else:
+        if banyakGame <= 9:
+            gameIdNew = "GAME00" + str(banyakGame)
+        elif banyakGame <= 99:
+            gameIdNew = "GAME0" + str(banyakGame)
+        elif banyakGame <= 999:
+            gameIdNew = "GAME" + str(banyakGame)
+
+        # Add data to Global Variable
+        Data.games += [[gameIdNew, newGame[0], newGame[1], newGame[2], newGame[3], newGame[4]]]
+        # Mengembalikan pesan sukses
+        print("Selamat! Berhasil menambahkan game " + newGame[0] + '.')
