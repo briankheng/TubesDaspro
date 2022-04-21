@@ -20,7 +20,7 @@ def tambahGame():
         newGame[4] = input("Masukkan stok awal: ")
 
     # generate game id
-    banyakGame = FungsiBuatan.lenght(Data.games) + 1
+    banyakGame = FungsiBuatan.lenght(Data.games)
 
     if(banyakGame > 999):
         print("Error! Tidak ada slot untuk game baru!")
