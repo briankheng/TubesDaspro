@@ -1,5 +1,5 @@
 def helpAdmin():
-    print("====== HELP ======")
+    print("========================== HELP ==========================")
     print("1. register - Mendaftarkan user baru")
     print("2. login - Melakukan login ke dalam sistem")
     print("3. tambah_game - Menambahkan daftar game ke dalam toko")
@@ -14,7 +14,7 @@ def helpAdmin():
     print("12.tictactoe - Permainan sederhana tic-tac-toe")
     
 def helpUser():
-    print("====== HELP ======")
+    print("========================== HELP ==========================")
     print("1. login - Melakukan login ke dalam sistem")
     print("2. list_game_toko - Mengurutkan game di toko berdasarkan ID, tahun rilis, atau harga")
     print("3. buy_game - Membeli game dengan memasukkan ID game yang ingin dibeli")
@@ -28,7 +28,7 @@ def helpUser():
     print("11.tictactoe - Permainan sederhana tic-tac-toe")
 
 def helpBelumLogin():
-    print("====== HELP ======")
+    print("========================== HELP ==========================")
     print("1. login - Melakukan login ke dalam sistem")
 
 def help(pilihan):

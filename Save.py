@@ -45,3 +45,6 @@ def save():
     writeToCSV(dirPath, "game.csv", Data.games)
     writeToCSV(dirPath, "kepemilikan.csv", Data.kepemilikan)
     writeToCSV(dirPath, "riwayat.csv", Data.riwayat)
+
+    print("\nSaving...")
+    print("Data telah disimpan pada folder " + folder + '!')

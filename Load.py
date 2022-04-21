@@ -33,3 +33,5 @@ def load(folder):
                 Data.kepemilikan = readCSV(dirPath, "kepemilikan.csv")
             if(os.path.isfile(dirPath + '/' + "riwayat.csv")):
                 Data.riwayat = readCSV(dirPath, "riwayat.csv")
+            print("\nLoading...\n")
+            print('Selamat datang di antarmuka "Binomo", ketik "help" untuk bantuan!')
