@@ -1,28 +1,47 @@
 import Data, FungsiBuatan, os
 
-# ga ngerti bikin folder, ga ngerti os
-# cek nama folder uda ada ato belonnya juga ga paham hehehe mian
+def findPath(folder):
+    path = os.getcwd()
+    for (root, dirs, files) in os.walk(path):
+        for dir in dirs:
+            if(dir == folder):
+                return root
+    return -1
 
-def save ():
-    # nama folder
+def writeToCSV(dirPath, file, memori):
+    arsipFile = open(dirPath + '/' + file, 'w')
+    for i in range(FungsiBuatan.lenght(memori)):
+        temp = ""
+        for j in range(FungsiBuatan.lenght(memori[i])):
+            if(j == FungsiBuatan.lenght(memori[i]) - 1):
+                temp += (memori[i][j] + '\n')
+            else:
+                temp += (memori[i][j] + ';')
+        arsipFile.writelines(temp)
+    arsipFile.close()
+
+def save():
     folder = input("Masukan nama folder penyimpanan: ")
 
-    # save user
-    user = open('FileEksternal/user.csv', 'w')
-    for i in range (FungsiBuatan.lenght(Data.user)):
-        user.writelines(Data.user[i][0]+';'+Data.user[i][1]+';'+Data.user[i][2]+';'+Data.user[i][3]+';'+Data.user[i][4]+';'+ Data.user[i][5]+'\n')
+    dirPath = findPath(folder)
+    if(dirPath == -1):
+        dirPath = os.path.join(os.getcwd(), folder)
+        os.mkdir(dirPath) # Buat directory baru jika belum ada.
+    else:
+        dirPath = os.path.join(dirPath, folder)
 
-    # save games
-    games = open('FileEksternal/games.csv', 'w')
-    for i in range (FungsiBuatan.lenght(Data.games)):
-        user.writelines(Data.games[i][0] + ";" + Data.games[i][1] + ";" + Data.games[i][2] + ";" + Data.games[i][3] + ";" + Data.games[i][4] + ";" + Data.games[i][5] + "\n")
+    # Buat File CSV jika belum ada.
+    if(not os.path.isfile(dirPath + '/' + "user.csv")):
+        open(dirPath + '/' + "user.csv", 'a').close()
+    if(not os.path.isfile(dirPath + '/' + "game.csv")):
+        open(dirPath + '/' + "game.csv", 'a').close()
+    if(not os.path.isfile(dirPath + '/' + "kepemilikan.csv")):
+        open(dirPath + '/' + "kepemilikan.csv", 'a').close()
+    if(not os.path.isfile(dirPath + '/' + "riwayat.csv")):
+        open(dirPath + '/' + "riwayat.csv", 'a').close()
 
-    # save kepemilikan
-    kepemilikan = open('FileEksternal/kepemilikan.csv', 'w')
-    for i in range (FungsiBuatan.lenght(Data.kepemilikan)):
-        user.writelines(Data.kepemilikan[i][0] + ";" + Data.kepemilikan[i][1] + "\n")
-    
-    # save riwayat
-    riwayat = open('FileEksternal/riwayat.csv', 'w')
-    for i in range (FungsiBuatan.lenght(Data.riwayat)):
-        user.writelines(Data.riwayat[i][0] + ";" + Data.riwayat[i][1] + ";" + Data.riwayat[i][2] + ";" + Data.riwayat[i][3] + "\n")
+    # Menuliskan data dari memori ke CSV
+    writeToCSV(dirPath, "user.csv", Data.users)
+    writeToCSV(dirPath, "game.csv", Data.games)
+    writeToCSV(dirPath, "kepemilikan.csv", Data.kepemilikan)
+    writeToCSV(dirPath, "riwayat.csv", Data.riwayat)
