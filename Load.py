@@ -1,7 +1,7 @@
 import os, FungsiBuatan, Data
 
-def readCSV(dirPath, folder, file):
-    arsipFile = open(dirPath + '/' + folder + '/' + file, 'r')
+def readCSV(dirPath, file):
+    arsipFile = open(dirPath + '/' + file, 'r')
     rekFile = arsipFile.readlines()
     arsipFile.close()
     return FungsiBuatan.CSVParser(rekFile)
@@ -24,11 +24,12 @@ def load(folder):
             print('Folder "' + folder + '" tidak ditemukan.')
             quit()
         else:
-            if(os.path.isfile(dirPath + '/' + folder + '/' + "user.csv")):
-                Data.users = readCSV(dirPath, folder, "user.csv")
-            if(os.path.isfile(dirPath + '/' + folder + '/' + "game.csv")):
-                Data.games = readCSV(dirPath, folder, "game.csv")
-            if(os.path.isfile(dirPath + '/' + folder + '/' + "kepemilikan.csv")):
-                Data.kepemilikan = readCSV(dirPath, folder, "kepemilikan.csv")
-            if(os.path.isfile(dirPath + '/' + folder + '/' + "riwayat.csv")):
-                Data.riwayat = readCSV(dirPath, folder, "riwayat.csv")
+            dirPath = os.path.join(dirPath, folder)
+            if(os.path.isfile(dirPath + '/' + "user.csv")):
+                Data.users = readCSV(dirPath, "user.csv")
+            if(os.path.isfile(dirPath + '/' + "game.csv")):
+                Data.games = readCSV(dirPath, "game.csv")
+            if(os.path.isfile(dirPath + '/' + "kepemilikan.csv")):
+                Data.kepemilikan = readCSV(dirPath, "kepemilikan.csv")
+            if(os.path.isfile(dirPath + '/' + "riwayat.csv")):
+                Data.riwayat = readCSV(dirPath, "riwayat.csv")
