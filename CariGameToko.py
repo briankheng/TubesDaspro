@@ -17,4 +17,3 @@ def cariGameToko():
             nomor += 1
     if(nomor == 0):
         print("Tidak ada game pada toko yang memenuhi kriteria")
-cariGameToko()

@@ -23,4 +23,3 @@ def ubahStok():
     
     if(benar == 0):
         print("Tidak ada game dengan ID tersebut!")
-ubahStok()

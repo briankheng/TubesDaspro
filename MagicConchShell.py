@@ -16,5 +16,3 @@ def LCG():
         print("\nTentunya.")
     else:
         print("\nTidak Mungkin.")
-
-LCG()

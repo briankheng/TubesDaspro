@@ -24,5 +24,3 @@ def topUpSaldo():
     # pesan error
     if (usernameValid == False):
         print ("Username " + str(username) + " tidak ditemukan.")
-
-topUpSaldo()

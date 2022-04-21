@@ -15,5 +15,3 @@ def register():
         Data.users += [[str(FungsiBuatan.lenght(Data.users)), username, nama, Cipher.encrypt(password, 4), "User", str(0)]]
     else:
         print("\nUsername " + username + " sudah terpakai, silakan menggunakan username lain.")
-
-register()

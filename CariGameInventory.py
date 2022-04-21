@@ -23,5 +23,3 @@ def cariGameInventory(idxUser):
                     nomor += 1
     if(nomor == 0):
         print("Tidak ada game pada inventory-mu yang memenuhi kriteria")
-
-cariGameInventory(1)

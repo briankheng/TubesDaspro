@@ -26,4 +26,3 @@ def save ():
     riwayat = open('FileEksternal/riwayat.csv', 'w')
     for i in range (FungsiBuatan.lenght(Data.riwayat)):
         user.writelines(Data.riwayat[i][0] + ";" + Data.riwayat[i][1] + ";" + Data.riwayat[i][2] + ";" + Data.riwayat[i][3] + "\n")
-

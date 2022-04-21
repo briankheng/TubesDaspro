@@ -1,18 +1,13 @@
-import Login, argparse
+import Login, Load, argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("namaFolder", nargs='?')
 args = parser.parse_args()
-if(args.namaFolder is None):
-    print("Tidak ada nama folder yang diberikan!")
-    exit()
-elif(args.namaFolder != "FileEksternal"):
-    print('Folder "' + str(args.namaFolder) + '" tidak ditemukan.')
-    exit()
 
-keluar = False
+Load.load(args.namaFolder)
+
 sudahLogin = False
-while(not keluar):
+while True:
     x = input()
     if(x == "login"):
         idxUser = Login.login()

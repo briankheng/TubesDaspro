@@ -63,4 +63,3 @@ def tictactoe():
         print('Pemain "O" menang.')
     else:
         print('Pemain "X" menang.')
-tictactoe()

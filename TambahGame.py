@@ -31,5 +31,3 @@ def tambahGame():
     
     # Add data to Global Variable
     Data.games += [[gameIdNew, newGame[0], newGame[1], newGame[2], newGame[3], newGame[4]]]
-
-tambahGame()

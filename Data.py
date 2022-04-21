@@ -1,5 +1,4 @@
 # Variabel Global
-
 users = []
 games = []
 kepemilikan = []
