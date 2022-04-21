@@ -1,6 +1,6 @@
 import Data, FungsiBuatan
 
-def sorting(arr, idx): # Melakukan sorting ascending suatu arr berdasarkan parameter idx
+def sortingArr(arr, idx): # Melakukan sorting ascending suatu arr berdasarkan parameter idx
     tempArr = arr
     for i in range(FungsiBuatan.lenght(arr)-1):
         for j in range(FungsiBuatan.lenght(arr)-1, i, -1):
@@ -11,7 +11,7 @@ def sorting(arr, idx): # Melakukan sorting ascending suatu arr berdasarkan param
     return tempArr
 
 def sortingGame(idx, c):
-    sortedGames = sorting(Data.games, idx)
+    sortedGames = sortingArr(Data.games, idx)
     if(c == '+'):
         for i in range(FungsiBuatan.lenght(Data.games)):
             print(str(i+1)+'. '+sortedGames[i][0]+' | '+sortedGames[i][1]+' | '+sortedGames[i][2]
