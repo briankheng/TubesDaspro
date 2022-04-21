@@ -9,7 +9,7 @@ def listGame(idxUser):
                     arr += [[Data.games[j][0], Data.games[j][1], Data.games[j][2], Data.games[j][3], Data.games[j][4]]]
     
     if(FungsiBuatan.lenght(arr) == 0):
-        print("Maaf, kamu belum membeli game. Ketik perintah beli_game untuk beli.")
+        print("Maaf, kamu belum membeli game. Ketik perintah buy_game untuk beli.")
     else:
         print("Daftar game:")
         nomor = 1
