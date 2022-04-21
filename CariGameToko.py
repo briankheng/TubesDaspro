@@ -8,7 +8,7 @@ def cariGameToko():
     tahun = input("Masukkan Tahun Rilis Game: ")
     nomor = 0
     print("Daftar game pada toko yang memenuhi kriteria: ")
-    for i in range(FungsiBuatan.lenght(Data.games)):
+    for i in range(1, FungsiBuatan.lenght(Data.games)):
         if((Data.games[i][0].lower() == id.lower() or id == '') and (Data.games[i][1].lower() == nama or nama.lower() == '') 
         and (Data.games[i][2].lower() == kategori.lower() or kategori == '') and (Data.games[i][3] == tahun or tahun == '') 
         and (Data.games[i][4] == harga or harga == '')):
