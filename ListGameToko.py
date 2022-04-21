@@ -1,7 +1,17 @@
 import Data, FungsiBuatan
 
+def sorting(arr, idx): # Melakukan sorting ascending suatu arr berdasarkan parameter idx
+    tempArr = arr
+    for i in range(FungsiBuatan.lenght(arr)-1):
+        for j in range(FungsiBuatan.lenght(arr)-1, i, -1):
+            if(tempArr[j][idx] < tempArr[j-1][idx]):
+                temp = tempArr[j][idx]
+                tempArr[j][idx] = tempArr[j-1][idx]
+                tempArr[j-1][idx] = temp
+    return tempArr
+
 def sortingGame(idx, c):
-    sortedGames = FungsiBuatan.sorting(Data.games, idx)
+    sortedGames = sorting(Data.games, idx)
     if(c == '+'):
         for i in range(FungsiBuatan.lenght(Data.games)):
             print(str(i+1)+'. '+sortedGames[i][0]+' | '+sortedGames[i][1]+' | '+sortedGames[i][2]
@@ -23,4 +33,3 @@ def listGame():
         sortingGame(4, x[5])
     else:
         print("Skema sorting tidak valid!")
-listGame()
