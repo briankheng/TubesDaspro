@@ -1,0 +1,94 @@
+Module ListingGameToko
+{ Melakukan listing game di toko berdasarkan ID, tahun rilis [tahun], 
+  dan harga [harga] serta bisa dilisting secara ascending [+] atau decending [-] }
+
+KAMUS
+    { Fungsi/Prosedur }
+    function sortingArr(idx : integer) -> array of array of string
+    { Melakukan sorting ascending suatu array berdasarkan parameter idx }
+    procedure sortingGame(input idx : integer, input c : character)
+    { Mengeprint ke layar isi dari array of array of string yang sudah disorting berdasarkan
+    parameter idx yang diberikan dengan ascending/decending berdasarkan c yang diberikan }
+    procedure listGame()
+    { Menerima input skema sorting yang diinginkan, melakukan validasi skema sorting,
+    memanggil prosedur sortingGame jika skema sorting tervalidasi atau mengeluarkan
+    pesan kesalahan jika tidak tervalidasi }
+
+ALGORITMA
+    -
+
+{ REALISASI FUNGSI/PROSEDUR }
+function sortingArr(idx : integer) -> array of array of string
+{ Melakukan sorting ascending suatu array berdasarkan parameter idx }
+KAMUS LOKAL
+    FungsiBuatan, Data : module
+    tempArr : array of array of string
+    temp : array of string
+    i, j : integer
+ALGORITMA
+    tempArr <- []
+    i traversal [0..FungsiBuatan.lenght(Data.games)]
+        tempArr <- tempArr + [Data.games[i]]
+    
+    i traversal [1..(FungsiBuatan.lenght(Data.games)-2)]
+        j traversal [(FungsiBuatan.lenght(Data.games)-1)..(i+1)]
+            if(idx ≠ 0) then
+                if(int(tempArr[j][idx]) < int(tempArr[j-1][idx])) then
+                    temp <- tempArr[j]
+                    tempArr[j] <- tempArr[j-1]
+                    tempArr[j-1] <- temp
+            else
+                if(int(tempArr[j][idx][4:7]) < int(tempArr[j-1][idx][4:7])) then
+                    temp <- tempArr[j]
+                    tempArr[j] <- tempArr[j-1]
+                    tempArr[j-1] <- temp
+    -> tempArr
+
+procedure sortingGame(input idx : integer, input c : character)
+{ Mengeprint ke layar isi dari array of array of string yang sudah disorting berdasarkan
+  parameter idx yang diberikan dengan ascending/decending berdasarkan c yang diberikan }
+KAMUS LOKAL
+    FungsiBuatan, Data : module
+    sortedGames : array of array of string
+    i, nomor : integer
+
+    { Fungsi/Prosedur }
+    function sortingArr(idx : integer) -> array of array of string
+    { Melakukan sorting ascending suatu array berdasarkan parameter idx }
+    function str(x : integer/string) -> string
+    { Melakukan konversi integer/string menjadi string }
+ALGORITMA
+    sortedGames <- sortingArr(idx)
+    if(c = '+') then
+        i traversal [1..(FungsiBuatan.lenght(Data.games)-1)]
+            output(str(i), ". ", str(sortedGames[i][0]), " | ", str(sortedGames[i][1]), " | ", str(sortedGames[i][2]),
+                   " | ", str(sortedGames[i][3]), " | ", str(sortedGames[i][4]), " | ", str(sortedGames[i][5]))
+    else
+        nomor <- 0
+        i traversal [(FungsiBuatan.lenght(Data.games)-1)..1]
+            output(str(nomor+1), ". ", str(sortedGames[i][0]), " | ", str(sortedGames[i][1]), " | ", str(sortedGames[i][2]),
+                   " | ", str(sortedGames[i][3]), " | ", str(sortedGames[i][4]), " | ", str(sortedGames[i][5]))
+            nomor <- nomor + 1
+
+procedure listGame()
+{ Menerima input skema sorting yang diinginkan, melakukan validasi skema sorting,
+  memanggil prosedur sortingGame jika skema sorting tervalidasi atau mengeluarkan
+  pesan kesalahan jika tidak tervalidasi }
+KAMUS LOKAL
+    FungsiBuatan, Python : module
+    x : string
+
+    { Fungsi/Prosedur }
+    procedure sortingGame(input idx : integer, input c : character)
+    { Mengeprint ke layar isi dari array of array of string yang sudah disorting berdasarkan
+    parameter idx yang diberikan dengan ascending/decending berdasarkan c yang diberikan }
+    function lower()
+    { mengubah variabel tipe string didepan fungsi menjadi all lower case }
+ALGORITMA
+    input(x)
+    depend on(x)
+        (x = '') : sortingGame(0, '+')
+        (x[0:5].lower() = "tahun") and (FungsiBuatan.lenght(x) = 6) and (x[5] = '+' or x[5] = '-') : sortingGame(3, x[5])
+        (x[0:5].lower() = "harga") and (FungsiBuatan.lenght(x) = 6) and (x[5] = '+' or x[5] = '-') : sortingGame(4, x[5])
+        ((x ≠ '') or ((x[0:5].lower() ≠ "tahun") and (FungsiBuatan.lenght(x) ≠ 6) and (x[5] ≠ '+' or x[5] ≠ '-')) or 
+        ((x[0:5].lower() ≠ "harga") and (FungsiBuatan.lenght(x) ≠ 6) and (x[5] ≠ '+' or x[5] ≠ '-'))) : output("Skema sorting tidak valid!") 

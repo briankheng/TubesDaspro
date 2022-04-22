@@ -3,8 +3,6 @@ Module Login
   dapat menjalankan fungsi-fungsi lain sesuai dengan rolenya }
 
 KAMUS
-    Data, FungsiBuatan, Cipher : module
-
     { Fungsi/Prosedur }
     function validasi(username : string, password : string) -> integer
     { Mengembalikan indeks username dan password pada variabel global jika ada,
@@ -14,13 +12,14 @@ KAMUS
       jika salah akan mengembalikan -1 dan pesan kesalahan }
 
 ALGORITMA
-    import Data, FungsiBuatan, Cipher
+    -
 
 { REALISASI FUNGSI/PROSEDUR }
 function validasi(username : string, password : string) -> integer
 { Mengembalikan indeks username dan password pada variabel global jika ada,
   jika tidak ada maka mengembalikan -1 }
 KAMUS LOKAL
+    FungsiBuatan, Cipher, Data : module
     i : integer
 ALGORITMA
     i traversal [0..FungsiBuatan.lenght(Data.users)]
@@ -32,8 +31,14 @@ function login() -> integer
 { Mengembalikan indeks user dan pesan pembuka jika validasi benar,
   jika salah akan mengembalikan -1 dan pesan kesalahan }
 KAMUS LOKAL
+    Data : module
     username, password : string
     idxUser : integer
+
+    { Fungsi/Prosedur }
+    function validasi(username : string, password : string) -> integer
+    { Mengembalikan indeks username dan password pada variabel global jika ada,
+    jika tidak ada maka mengembalikan -1 }
 ALGORITMA
     input(username, password)
     idxUser <- validasi(username, password)
