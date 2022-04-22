@@ -1,0 +1,49 @@
+Module FungsiBuatan
+{ Berisi fungsi-fungsi yang akan sering digunakan paka module lain }
+
+KAMUS
+    { Fungsi/Prosedur }
+    function lenght(object : any) -> integer
+    { Mengembalikan nilai panjang isi dari object yang diberikan }
+    function CSVParser(raw : array of string) -> array of array of string
+    { Mengembalikan array of array of string dari hasil parsing input raw yang diberikan }
+
+ALGORITMA
+    -
+
+{ REALISASI FUNGSI/PROSEDUR }
+function lenght(object : any) -> integer
+{ Mengembalikan nilai panjang isi dari object yang diberikan }
+KAMUS LOKAL
+    count : integer
+    i : any
+ALGORITMA
+    count <- 0
+    i traversal object:
+        count <- count + 1
+    return count
+
+function CSVParser(raw : array of string) -> array of array of string
+{ Mengembalikan array of array of string dari hasil parsing input raw yang diberikan }
+KAMUS LOKAL
+    matrix : array of array of string
+    i, j : integer
+    tempList : array of string
+    tempString : string
+
+    { Fungsi/Prosedur }
+    function lenght(object : any) -> integer
+    { Mengembalikan nilai panjang isi dari object yang diberikan }
+ALGORITMA
+    matrix <- []
+    i traversal [0..(lenght(raw)-1)]
+        tempList <- []
+        tempString <- ""
+        j traversal [0..(lenght(raw[i])-1)]
+            if(raw[i][j] = ';' or raw[i][j] = '\n') then
+                tempList <- tempList + [tempString]
+                tempString <- ""
+            else
+                tempString <- tempString + raw[i][j]
+        matrix <- matrix + [tempList]
+    -> matrix

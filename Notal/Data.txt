@@ -1,0 +1,11 @@
+Module Data
+{ Berisi data dari csv yang tersimpan di array sebagai variabel global }
+
+KAMUS
+    users, games, kepemilikan, riwayat : array
+
+ALGORITMA
+    users <- []
+    games <- []
+    kepemilikan <- []
+    riwayat <- []
