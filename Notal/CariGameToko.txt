@@ -1,0 +1,38 @@
+Module CariGameToko
+{ Melakukan pencarian game di toko berdasarkan input ID, Nama Game, Harga,
+  Kategori, dan Tahun Rilis, parameter tidak wajib diisi }
+
+KAMUS
+    { Fungsi/Prosedur }
+    procedure sortingGame()
+    { Mencari game di toko yang memenuhi kriteria input ID, Nama Game, Harga,
+    Kategori, dan Tahun Rilis, parameter tidak wajib diisi }
+
+ALGORITMA
+    -
+
+{ REALISASI FUNGSI/PROSEDUR }
+procedure sortingGame()
+{ Mencari game di toko yang memenuhi kriteria input ID, Nama Game, Harga,
+  Kategori, dan Tahun Rilis, parameter tidak wajib diisi }
+KAMUS LOKAL
+    FungsiBuatan, Data, Python : module
+    id, nama, harga, kategori, tahun : string
+    nomor : integer
+
+    { Fungsi/Prosedur }
+    function str(x : integer/string) -> string
+    { Melakukan konversi integer/string menjadi string }
+ALGORITMA
+    input(id, nama, harga, kategori, tahun)
+    nomor <- 0
+    output("Daftar game pada toko yang memenuhi kriteria: ")
+    i traversal [1..(FungsiBuatan.lenght(Data.games)-1)]
+        if((str(Data.games[i][0].lower()) = id.lower() or id = '') and (str(Data.games[i][1].lower()) = nama or nama.lower() = '') 
+        and (str(Data.games[i][2].lower()) = kategori.lower() or kategori = '') and (str(Data.games[i][3]) = tahun or tahun = '') 
+        and (str(Data.games[i][4]) = harga or harga = '')) then
+            output(str(nomor+1), ". ", str(Data.games[i][0]), " | ", str(Data.games[i][1]), " | ", str(Data.games[i][2]),
+                  " | ", str(Data.games[i][3]), " | ", str(Data.games[i][4]), " | ", str(Data.games[i][5]))
+            nomor <- nomor + 1
+    if(nomor = 0) then
+        output("Tidak ada game pada toko yang memenuhi kriteria")

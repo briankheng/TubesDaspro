@@ -1,0 +1,84 @@
+Module Load
+{ Melakukan loading data dari file csv ke memori lokal dengan
+  menerima input nama folder yang kemudian dilakukan validasi }
+
+KAMUS
+    { Fungsi/Prosedur }
+    function readCSV(dirPath : string, file : string) -> array of array of string
+    { Mengembalikan nilai file CSV yang dibaca yang berada pada dirPath }
+    function findPath(folder : string) -> string/integer
+    { Jika ada maka mengembalikan path folder tersebut berada,
+    jika tidak maka mengembalikan -1 }
+    procedure load(input folder : string)
+    { Melakukan loading data dari file CSV ke memori lokal di module Data,
+    dilakukan validasi input, jika tidak ada folder yang diberikan atau 
+    folder tidak ditemukan maka mengembalikan pesan kesalahan }
+
+ALGORITMA
+    -
+
+{ REALISASI FUNGSI/PROSEDUR }
+function readCSV(dirPath : string, file : string) -> array of array of string
+{ Mengembalikan nilai file CSV yang dibaca yang berada pada dirPath }
+KAMUS LOKAL
+    FungsiBuatan: module
+    arsipFile:
+        SEQFILE of
+            (*) rekFile : string
+            (1) NONE
+ALGORITMA
+    assign(arsipFile, file)
+    open(arsipFile, rekFile)
+    close(arsipFile)
+    -> FungsiBuatan.CSVParser(rekFile)
+
+function findPath(folder : string) -> string/integer
+{ Jika ada maka mengembalikan path folder tersebut berada,
+  jika tidak maka mengembalikan -1 }
+KAMUS LOKAL
+    os: module
+    root, path, dir : string
+    dirs, files : array of string
+ALGORITMA
+    path <- os.getcwd()
+    (root, dirs, files) traversal os.walk(path)
+        dir traversal dirs
+            if(dir = folder) then
+                -> root
+    -> -1
+
+procedure load(input folder : string)
+{ Melakukan loading data dari file CSV ke memori lokal di module Data,
+  dilakukan validasi input, jika tidak ada folder yang diberikan atau 
+  folder tidak ditemukan maka mengembalikan pesan kesalahan }
+KAMUS LOKAL
+    Data, os, Python : module
+    dirPath : string
+
+    { Fungsi/Prosedur }
+    function readCSV(dirPath : string, file : string) -> array of array of string
+    { Mengembalikan nilai file CSV yang dibaca yang berada pada dirPath }
+    function findPath(folder : string) -> string/integer
+    { Jika ada maka mengembalikan path folder tersebut berada,
+    jika tidak maka mengembalikan -1 }
+ALGORITMA
+    if(folder = None) then
+        output("Tidak ada nama folder yang diberikan!")
+        quit()
+    else
+        dirPath <- findPath(folder)
+        if(dirPath = -1) then
+            output("Folder ", folder, " tidak ditemukan.")
+            quit()
+        else
+            dirPath <- os.path.join(dirPath, folder)
+            if(os.path.isfile(dirPath + '/' + "user.csv")) then
+                Data.users <- readCSV(dirPath, "user.csv")
+            if(os.path.isfile(dirPath + '/' + "game.csv")) then
+                Data.games <- readCSV(dirPath, "game.csv")
+            if(os.path.isfile(dirPath + '/' + "kepemilikan.csv")) then
+                Data.kepemilikan <- readCSV(dirPath, "kepemilikan.csv")
+            if(os.path.isfile(dirPath + '/' + "riwayat.csv")) then
+                Data.riwayat <- readCSV(dirPath, "riwayat.csv")
+            output("Loading...")
+            output("Selamat datang di antarmuka "Binomo", ketik "help" untuk bantuan!")
