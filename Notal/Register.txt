@@ -6,9 +6,9 @@ KAMUS
 
 	{Fungsi/Prosedur}
 	function validasiUsername(username : string)
-  {Memvalidasi apakah username sudah terpakai atau belum pada file users.csv, return True jika belum terpakai dan false jika sudah terpakai}
-  procedure register()
-  {Memasukkan data pengguna baru ke file users.csv jika memang sudah tervalidasi}
+	{Memvalidasi apakah username sudah terpakai atau belum pada file users.csv, return True jika belum terpakai dan false jika sudah terpakai}
+	procedure register()
+	{Memasukkan data pengguna baru ke file users.csv jika memang sudah tervalidasi}
 	
 ALGORITMA UTAMA
 	import Data, FungsiBuatan, Cipher
