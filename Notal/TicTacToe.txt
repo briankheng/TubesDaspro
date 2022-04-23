@@ -5,18 +5,18 @@ KAMUS
 	Data, FungsiBuatan, Cipher : module
 
 	{Fungsi/Prosedur}
-  function valid(x : integer, y : integer, papan : arr[1..3] of arr[1..3] of character)
-  {Memvalidasi...}
-  function adaPemenang(papan : arr[1..3] of arr[1..3] of character)
-  { }
-  function adaSlot(papan : arr[1..3] of arr[1..3] of character)
-  { }
-  procedure status(input papan : arr[1..3] of arr[1..3] of character)
-  { }
-  function inputAngka(papan : arr[1..3] of arr[1..3] of character, pemain : character)
-  { }
-  procedure tictactoe()
-  { }
+	function valid(x : integer, y : integer, papan : arr[1..3] of arr[1..3] of character)
+	{Memvalidasi...}
+	function adaPemenang(papan : arr[1..3] of arr[1..3] of character)
+	{ }
+	function adaSlot(papan : arr[1..3] of arr[1..3] of character)
+	{ }
+	procedure status(input papan : arr[1..3] of arr[1..3] of character)
+	{ }
+	function inputAngka(papan : arr[1..3] of arr[1..3] of character, pemain : character)
+	{ }
+	procedure tictactoe()
+	{ }
 	
 ALGORITMA UTAMA
 
@@ -28,9 +28,9 @@ KAMUS LOKAL
 
 ALGORITMA
 	depend on (x,y,papan):
-    x > 3 or x < 1 or y > 3 or y < 1 : output(“\nkotak tidak valid.\n”)
+    		x > 3 or x < 1 or y > 3 or y < 1 : output(“\nkotak tidak valid.\n”)
                                        -> false
-    Papan[y-1][x-1] ≠ ‘#’ : output(“\nkotak sudah   terisi. Silakan pilih kotak lain\n”)
+   		Papan[y-1][x-1] ≠ ‘#’ : output(“\nkotak sudah   terisi. Silakan pilih kotak lain\n”)
                             -> false	
 	else : -> true 
 
@@ -40,13 +40,13 @@ function adaPemenang(papan : arr[1..3] of arr[1..3] of character)
 KAMUS LOKAL
 
 ALGORITMA
-  if ((papan[0][0] = papan[0][1] = papan[0][2] and papan[0][0]  '#') or (papan[1][0] = papan[1][1] = papan[1][2] and papan[1][0]  '#') or 
-     (papan[2][0] = papan[2][1] = papan[2][2] and papan[2][0]  '#') or (papan[0][0] = papan[1][0] = papan[2][0] and papan[0][0]  '#') or 
-     (papan[0][1] = papan[1][1] = papan[2][1] and papan[0][1]  '#') or (papan[0][2] = papan[1][2] = papan[2][2] and papan[0][2]  '#') or
-     (papan[0][0] = papan[1][1] = papan[2][2] and papan[0][0]  '#') or (papan[0][2] = papan[1][1] = papan[2][0] and papan[0][2]  '#')) then
-	  -> true
-  else
-	  -> false
+	  if ((papan[0][0] = papan[0][1] = papan[0][2] and papan[0][0]  '#') or (papan[1][0] = papan[1][1] = papan[1][2] and papan[1][0]  '#') or 
+	     (papan[2][0] = papan[2][1] = papan[2][2] and papan[2][0]  '#') or (papan[0][0] = papan[1][0] = papan[2][0] and papan[0][0]  '#') or 
+	     (papan[0][1] = papan[1][1] = papan[2][1] and papan[0][1]  '#') or (papan[0][2] = papan[1][2] = papan[2][2] and papan[0][2]  '#') or
+	     (papan[0][0] = papan[1][1] = papan[2][2] and papan[0][0]  '#') or (papan[0][2] = papan[1][1] = papan[2][0] and papan[0][2]  '#')) then
+		  -> true
+	  else
+		  -> false
 
 function adaSlot(papan : arr[1..3] of arr[1..3] of character)
 { }
@@ -67,7 +67,7 @@ KAMUS LOKAL
 
 ALGORITMA
 	output(“\nStatus Papan”)
-  i traversal [1..3]
+ 	i traversal [1..3]
 		j traversal [1..3]
 			output(papan[i][j] = ‘#’,end = ‘’)
 		output()
@@ -84,7 +84,7 @@ ALGORITMA
 	output(‘ Giliran Pemain "’ + pemain + '"')
 	input(x)
 	input(y)
-  while(not valid(x, y, papan)) do
+  	while(not valid(x, y, papan)) do
 		output(‘ Giliran Pemain "’ + pemain + '"')
 		input(x)
 		input(y)
@@ -104,19 +104,20 @@ ALGORITMA
 	giliranX <- true
 	output(‘ Legenda:\n# Kosong\nX Pemain 1\nO Pemain 2')
 	status(papan)
-  while(not adaPemenang(papan) and adaSlot(papan)) do
-    if(giliranX)then
-      papan <- inputAngka(papan, ‘X’)
-      status(papan)
-      giliranX <- false
-    else
-      papan <- inputAngka(papan, ‘O’)
-      status(papan)
-      giliranX <- true
+  	while(not adaPemenang(papan) and adaSlot(papan)) do
+   		if(giliranX)then
+		      papan <- inputAngka(papan, ‘X’)
+		      status(papan)
+		      giliranX <- false
+  		else
+		      papan <- inputAngka(papan, ‘O’)
+		      status(papan)
+		      giliranX <- true
 	
-	depend on (adaPemenang(papan), giliranX):
+	depend on (adaPemenang(papan), giliranX)
 		not adaPemenang(papan) : output(‘Permainan seri.’)
 		giliranX			 : output(‘Pemain “O” menang.’)
-	else : output(‘Pemain “X” menang.’) 
+	else
+		output(‘Pemain “X” menang.’) 
     
 
