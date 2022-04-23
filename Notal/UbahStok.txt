@@ -4,12 +4,12 @@ Module UbahStok
 KAMUS
 	Data, FungsiBuatan : module
 	
-  procedure ubahStok()
-  {Mengubah stok game dengan memasukkan ID dan jumlah yang diinginkan}
+	procedure ubahStok()
+	{Mengubah stok game dengan memasukkan ID dan jumlah yang diinginkan}
 
 ALGORITMA UTAMA
 	
-  import Data, FungsiBuatan
+  	import Data, FungsiBuatan
   
 {REALISASI FUNGSI/PROSEDUR}
 procedure ubahStok()
@@ -26,18 +26,18 @@ ALGORITMA
 
 	i traversal [0..FungsiBuatan.lenght(Data.users)]
 		if(Data.games[i][0] == id)then
-      input(tambahStok)
+      			input(tambahStok)
 			benar <- 1
-      Data.games[i][5] <- int(Data.games[i][5]) + tambahStok
+      			Data.games[i][5] <- int(Data.games[i][5]) + tambahStok
 
-      if(int(Data.games[i][5]) > 0) then
-	      if tambahStok < 0 then
-          output("Stok game", Data.games[i][1], "berhasil dikurangi. Stok sekarang:", Data.games[i][5])
+      			if(int(Data.games[i][5]) > 0) then
+				if tambahStok < 0 then
+			      		output("Stok game", Data.games[i][1], "berhasil dikurangi. Stok sekarang:", Data.games[i][5])
 				else
-          output("Stok game", Data.games[i][1], "berhasil ditambahkan. Stok sekarang:", Data.games[i][5])
+          				output("Stok game", Data.games[i][1], "berhasil ditambahkan. Stok sekarang:", Data.games[i][5])
 			else
-        Data.games[i][5] <- int(Data.games[i][5]) - tambahStok
-        Output("Stok game", Data.games[i][1], "gagal dikurangi karena stok kurang. Stok sekarang:",Data.games[i][5])
+        			Data.games[i][5] <- int(Data.games[i][5]) - tambahStok
+        			output("Stok game", Data.games[i][1], "gagal dikurangi karena stok kurang. Stok sekarang:",Data.games[i][5])
 	
-  if(benar = 0) then
+	if(benar = 0) then
 		output(“Tidak ada game dengan ID tersebut!”)
