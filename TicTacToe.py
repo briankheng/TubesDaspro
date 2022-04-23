@@ -1,4 +1,5 @@
 def valid(x, y, papan):
+    # Mengecek apakah kotak tersebut valid (1 <= x, y <= 3 dan kotak belum terisi)
     if(x > 3 or x < 1 or y > 3 or y < 1):
         print("\nkotak tidak valid.\n")
         return False
@@ -9,6 +10,7 @@ def valid(x, y, papan):
         return True
 
 def adaPemenang(papan):
+    # Mengecek apakah sudah ada pemenang dibagian horizontal/vertikal/diagonal
     if((papan[0][0] == papan[0][1] == papan[0][2] and papan[0][0] != '#') or (papan[1][0] == papan[1][1] == papan[1][2] and papan[1][0] != '#') or 
        (papan[2][0] == papan[2][1] == papan[2][2] and papan[2][0] != '#') or (papan[0][0] == papan[1][0] == papan[2][0] and papan[0][0] != '#') or 
        (papan[0][1] == papan[1][1] == papan[2][1] and papan[0][1] != '#') or (papan[0][2] == papan[1][2] == papan[2][2] and papan[0][2] != '#') or
@@ -18,6 +20,7 @@ def adaPemenang(papan):
         return False
 
 def adaSlot(papan):
+    # Mengecek apakah masih ada slot kosong yang dapat diisi
     for i in range(3):
         for j in range(3):
             if(papan[i][j] == '#'):
@@ -25,6 +28,7 @@ def adaSlot(papan):
     return False
 
 def status(papan):
+    # Mengeprint status papan terkini ke layar
     print("\nStatus Papan")
     for i in range(3):
         for j in range(3):
@@ -33,6 +37,7 @@ def status(papan):
     print()
 
 def inputAngka(papan, pemain):
+    # Proses meminta input posisi ke pemain
     print('Giliran Pemain "' + pemain + '"')
     x = int(input("X: "))
     y = int(input("Y: "))
@@ -44,6 +49,8 @@ def inputAngka(papan, pemain):
     return papan
 
 def tictactoe():
+    # Permainan sederhana tictactoe, pemain x dan o bermain bergantian hingga
+    # salah satu menang dan permainan dihentikan
     papan = [['#' for j in range(3)] for i in range(3)]
     giliranX = True
     print("Legenda:\n# Kosong\nX Pemain 1\nO Pemain 2")
