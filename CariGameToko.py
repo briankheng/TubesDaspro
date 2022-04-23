@@ -9,7 +9,7 @@ def cariGameToko():
     nomor = 0
     print("Daftar game pada toko yang memenuhi kriteria: ")
     for i in range(1, FungsiBuatan.lenght(Data.games)):
-        if((str(Data.games[i][0].lower()) == id.lower() or id == '') and (str(Data.games[i][1].lower()) == nama or nama.lower() == '') 
+        if((str(Data.games[i][0].lower()) == id.lower() or id == '') and (str(Data.games[i][1].lower()) == nama.lower() or nama == '') 
         and (str(Data.games[i][2].lower()) == kategori.lower() or kategori == '') and (str(Data.games[i][3]) == tahun or tahun == '') 
         and (str(Data.games[i][4]) == harga or harga == '')):
             print(str(nomor+1)+'. '+str(Data.games[i][0])+' | '+str(Data.games[i][1])+' | '+str(Data.games[i][2])
