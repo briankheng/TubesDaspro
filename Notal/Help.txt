@@ -1,0 +1,74 @@
+Module Help
+{Memberikan penggunaan panduan sistem berdasarkan pengakses sistem}
+
+KAMUS	
+	Pilihan : integer
+
+  procedure helpAdmin()
+  {panduan sistem khusus untuk admin}
+  procedure helpUser()
+  {panduan sistem khusus untuk user}
+  procedure helpBelumLogin()
+  {panduan sistem jika belum login}
+  procedure help(input pilihan : integer)
+  {Menampilkan panduan sesuai akses pengguna, yaitu admin, user, atau belum login}
+
+ALGORITMA UTAMA
+
+
+{REALISASI FUNGSI/PROSEDUR}
+procedure helpAdmin()
+{panduan sistem khusus untuk admin}
+
+KAMUS LOKAL
+
+ALGORITMA
+  output("====== HELP ======")
+  output("1. register - Mendaftarkan user baru")
+  output("2. login - Melakukan login ke dalam sistem")
+  output("3. tambah game - Menambahkan daftar game ke dalam toko")
+  output("4. ubah game - Mengubah informasi game pada toko")
+  output("5. ubah stok - Mengubah stok game pada toko")
+  output("6. listing game - Mengurutkan game di toko berdasarkan ID, tahun rilis, atau harga")
+  output("7. cari game pada toko - Mencari game di toko berdasarkan ID, nama game, harga, kategori, atau tahun rilis")
+  output("8. top up saldo - Menambahkan saldo kepada user")
+  output("9. save - Menyimpan data ke dalam file setelah melakukan perubahan")
+
+procedure helpUser()
+{panduan sistem khusus untuk user}
+
+KAMUS LOKAL
+
+ALGORITMA
+  output("====== HELP ======")
+  output("1. login - Melakukan login ke dalam sistem")
+  output("2. listing game - Mengurutkan game di toko berdasarkan ID, tahun rilis, atau harga")
+  output("3. beli game - Membeli game dengan memasukkan ID game yang ingin dibeli")
+  output("4. lihat game - Melihat game yang dimiliki user")
+  output("5. cari game yang dimiliki - Mencari game yang dimiliki berdasarkan ID dan tahun rilis")
+  output("6. cari game pada toko- Mencari game di toko berdasarkan ID, nama game, harga, kategori, atau tahun rilis")
+  output("7. riwayat pembelian - Melihat riwayat pembelian game")
+  output ("8. save - Menyimpan data ke dalam file setelah melakukan perubahan")
+
+procedure helpBelumLogin()
+{panduan sistem jika belum login}
+
+KAMUS LOKAL
+
+ALGORITMA
+  output("====== HELP ======")
+  output("1. login - Melakukan login ke dalam sistem")
+
+procedure help(input pilihan : integer)
+{Menampilkan panduan sesuai akses pengguna, yaitu admin, user, atau belum login}
+
+KAMUS LOKAL
+
+ALGORITMA
+	Depend on(pilihan)
+		pilihan = 1 : helpAdmin()
+		pililhan = 2 : helpUser()
+	else : helpBelumLogin()
+
+
+
