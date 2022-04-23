@@ -37,9 +37,9 @@ ALGORITMA
 	input(nama, username, password)
 	
 	if(validasiUsername(username)) then
-    Data.users <- Data.users + [[str(FungsiBuatan.lenght(Data.users)), username, nama, Cipher.encrypt(password, 4), "User", str(0)]] 
-    writeToCSV(os.path.join(os.getcwd(), folder), "user.csv", Data.users)
-    output("\nUsername " + username + ' telah berhasil register ke dalam "Binomo".')
+		Data.users <- Data.users + [[str(FungsiBuatan.lenght(Data.users)), username, nama, Cipher.encrypt(password, 4), "User", str(0)]] 
+		writeToCSV(os.path.join(os.getcwd(), folder), "user.csv", Data.users)
+		output("\nUsername " + username + ' telah berhasil register ke dalam "Binomo".')
 	else 
-    output("\nUsername " + username + " sudah terpakai, silakan menggunakan username lain.")
+    		output("\nUsername " + username + " sudah terpakai, silakan menggunakan username lain.")
 
