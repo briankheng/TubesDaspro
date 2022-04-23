@@ -1,0 +1,31 @@
+Module MagicConchShell
+{Menerima sebuah input pertanyaan berupa string lalu akan menghasilkan output secara acak antara “Ya.”, ”Tidak.”, ”Bisa Jadi.”, ”Mungkin.”, ”Tentunya.”, atau “Tidak Mungkin.”}
+
+KAMUS
+	time : module
+	
+	procedure LCG()
+	{Menerima input pertanyaan dan menghasilkan output jawaban secara acak antara “Ya.”, ”Tidak.”, ”Bisa Jadi.”, ”Mungkin.”, ”Tentunya.”, atau “Tidak Mungkin.”}
+
+ALGORITMA UTAMA
+	
+	import time
+	
+{REALISASI FUNGSI/PROSEDUR}
+procedure LCG()
+{Menerima input pertanyaan dan menghasilkan output jawaban secara acak antara “Ya.”, ”Tidak.”, ”Bisa Jadi.”, ”Mungkin.”, ”Tentunya.”, atau “Tidak Mungkin.”}
+
+KAMUS LOKAL
+	seed, randomValue : integer
+ALGORITMA
+	input()
+	seed <- int(time.time())
+	randomValue <- (seed * 7 + 3) mod 6
+	depend on (randomValue):
+		randomValue = 0 : output(“\nYa.”)
+		randomValue = 1 : output(“\nTidak.”)
+		randomValue = 2 : output(“\nBisa Jadi.”)
+		randomValue = 3 : output(“\nMungkin.”)
+		randomValue = 4 : output(“\nTentunya.”)
+	else : output(“\nTidak Mungkin.”)
+
