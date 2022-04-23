@@ -4,14 +4,14 @@ Module Help
 KAMUS	
 	Pilihan : integer
 
-  procedure helpAdmin()
-  {panduan sistem khusus untuk admin}
-  procedure helpUser()
-  {panduan sistem khusus untuk user}
-  procedure helpBelumLogin()
-  {panduan sistem jika belum login}
-  procedure help(input pilihan : integer)
-  {Menampilkan panduan sesuai akses pengguna, yaitu admin, user, atau belum login}
+	procedure helpAdmin()
+	{panduan sistem khusus untuk admin}
+	procedure helpUser()
+	{panduan sistem khusus untuk user}
+	procedure helpBelumLogin()
+	{panduan sistem jika belum login}
+	procedure help(input pilihan : integer)
+	{Menampilkan panduan sesuai akses pengguna, yaitu admin, user, atau belum login}
 
 ALGORITMA UTAMA
 
@@ -68,7 +68,8 @@ ALGORITMA
 	Depend on(pilihan)
 		pilihan = 1 : helpAdmin()
 		pililhan = 2 : helpUser()
-	else : helpBelumLogin()
+	else
+		helpBelumLogin()
 
 
 
