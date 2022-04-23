@@ -1,0 +1,45 @@
+Module Register
+{Admin mendaftar pengguna baru dengan memasukkan nama, username, dan password. Pengguna yang mendaftar memiliki role ‘user’}
+
+KAMUS
+	Data, FungsiBuatan, Cipher, Save : module
+
+	{Fungsi/Prosedur}
+	function validasiUsername(username : string)
+	{Memvalidasi apakah username sudah terpakai atau belum pada file users.csv, return True jika belum terpakai dan false jika sudah terpakai}
+	procedure register()
+	{Memasukkan data pengguna baru ke file users.csv jika memang sudah tervalidasi}
+	
+ALGORITMA UTAMA
+	import Data, FungsiBuatan, Cipher
+	from Save import writeToCSV	
+
+
+{REALISASI FUNGSI/PROSEDUR}
+function validasiUsername(username: string)
+{Memvalidasi apakah username sudah terpakai atau belum pada file users.csv, return True jika belum terpakai dan false jika sudah terpakai}
+
+KAMUS LOKAL
+
+ALGORITMA
+	i traversal [0..FungsiBuatan.lenght(Data.users)]
+		if(Data.users[i][1] == username) then
+			-> False
+	-> True
+
+procedure register()
+{Memasukkan data pengguna baru ke file users.csv jika memang sudah tervalidasi}
+
+KAMUS LOKAL
+	nama, username, password : string
+
+ALGORITMA
+	input(nama, username, password)
+	
+	if(validasiUsername(username)) then
+		Data.users <- Data.users + [[str(FungsiBuatan.lenght(Data.users)), username, nama, Cipher.encrypt(password, 4), "User", str(0)]] 
+		writeToCSV(os.path.join(os.getcwd(), folder), "user.csv", Data.users)
+		output("\nUsername " + username + ' telah berhasil register ke dalam "Binomo".')
+	else 
+    		output("\nUsername " + username + " sudah terpakai, silakan menggunakan username lain.")
+
