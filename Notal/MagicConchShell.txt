@@ -21,7 +21,7 @@ ALGORITMA
 	input()
 	seed <- int(time.time())
 	randomValue <- (seed * 7 + 3) mod 6
-	depend on (randomValue):
+	depend on (randomValue)
 		randomValue = 0 : output(“\nYa.”)
 		randomValue = 1 : output(“\nTidak.”)
 		randomValue = 2 : output(“\nBisa Jadi.”)
