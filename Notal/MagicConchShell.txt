@@ -4,11 +4,13 @@ Module MagicConchShell
 KAMUS
 	time : module
 	
-procedure LCG()
-{Menerima input pertanyaan dan menghasilkan output jawaban secara acak antara “Ya.”, ”Tidak.”, ”Bisa Jadi.”, ”Mungkin.”, ”Tentunya.”, atau “Tidak Mungkin.”}
+	procedure LCG()
+	{Menerima input pertanyaan dan menghasilkan output jawaban secara acak antara “Ya.”, ”Tidak.”, ”Bisa Jadi.”, ”Mungkin.”, ”Tentunya.”, atau “Tidak Mungkin.”}
 
 ALGORITMA UTAMA
+	
 	import time
+	
 {REALISASI FUNGSI/PROSEDUR}
 procedure LCG()
 {Menerima input pertanyaan dan menghasilkan output jawaban secara acak antara “Ya.”, ”Tidak.”, ”Bisa Jadi.”, ”Mungkin.”, ”Tentunya.”, atau “Tidak Mungkin.”}
