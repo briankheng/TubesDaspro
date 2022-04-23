@@ -6,17 +6,17 @@ KAMUS
 
 	{Fungsi/Prosedur}
 	function valid(x : integer, y : integer, papan : arr[1..3] of arr[1..3] of character)
-	{Memvalidasi...}
+	{Memvalidasi apakah kotak tersebut valid (1 <= x, y <= 3 dan kotak belum terisi).}
 	function adaPemenang(papan : arr[1..3] of arr[1..3] of character)
-	{ }
+	{Mengecek apakah sudah ada pemenang dibagian horizontal/vertikal/diagonal }
 	function adaSlot(papan : arr[1..3] of arr[1..3] of character)
-	{ }
+	{Mengecek apakah masih ada slot kosong yang dapat diisi }
 	procedure status(input papan : arr[1..3] of arr[1..3] of character)
-	{ }
+	{Mencetak output status papan terkini ke layar }
 	function inputAngka(papan : arr[1..3] of arr[1..3] of character, pemain : character)
-	{ }
+	{Proses meminta input posisi ke pemain }
 	procedure tictactoe()
-	{ }
+	{Permainan sederhana tictactoe, pemain x dan o bermain bergantian hingga, salah satu menang dan permainan dihentikan }
 	
 ALGORITMA UTAMA
 
